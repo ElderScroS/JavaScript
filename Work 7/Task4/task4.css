@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    font-size: 80px;
+    text-align: center;
+}
+
+.rating {
+    margin-top: 300px;
+}
+
+.rating i {
+    cursor: pointer;
+    color: #000;
+}
+
+.rating i:hover {
+    color: rgb(46, 0, 138);
+}

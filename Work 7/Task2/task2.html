@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="task2.css">
+
+        <title>Task2</title>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="sidebar-list">
+                <li><i style="color: grey;" class="fas fa-pencil-alt"></i><span>Edit</span></li>
+                <li><i style="color: rgb(201, 0, 0);" class="fas fa-heart"></i><span>Favourites</span></li>
+                <li><i style="color: whitesmoke;" class="fas fa-history"></i><span>History</span></li>
+                <li><i style="color: white;" class="fas fa-shield-alt"></i><span>Security</span></li>
+                <li><i style="color: white;" class="fas fa-cogs"></i><span>Settings</span></li>
+            </ul>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/ea61994a8b.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('.menu-toggle').click(function() {
+                $('.sidebar').toggleClass('opened');
+            });
+
+            $('.menu li').hover(
+                function() {
+                    $(this).css('background-color', '#777');
+                    $(this).css('transform', 'scale(1.1)');
+                },
+                function() {
+                    $(this).css('background-color', 'transparent');
+                    $(this).css('transform', 'scale(1)');
+                }
+            );
+        </script>
+    </body>
+</html>

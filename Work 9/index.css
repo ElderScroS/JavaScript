@@ -1,0 +1,42 @@
+body {
+    background-color: antiquewhite;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 150px;
+    border: 2px solid rgba(72, 66, 66, 0.626);
+}
+
+.container {
+    display: flex;
+}
+.customer-form {
+    margin-right: 40px;
+}
+.customer-form input {
+    margin-bottom: 10px;
+}
+.product-form {
+    margin-bottom: 10px;
+}
+h2 {
+    position: absolute;
+    margin-left: 60%;
+}
+.customers-list {
+    width: 150px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(2, 10, 16);
+    margin-top: 60px;
+    margin-left: 120px;
+}
+.customers-list li {
+    margin-bottom: 5px;
+}
+.products-list {
+    margin-top: 20px;
+}
+.products-list li {
+    margin-bottom: 5px;
+}

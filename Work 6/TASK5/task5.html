@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="task5.css">
+
+        <title>Task6</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h4>All questions</h4>
+
+            <ul id="questions-list" class="questions-list"></ul>
+
+            <div class="question-input">
+                <label for="question">Question:</label>
+                <input type="text" id="question-input">
+            </div>
+
+            <div class="question-input">
+                <label for="correct-answer">Correct Answer:</label>
+                <input type="text" id="correct-answer-input">
+            </div>
+
+            <div class="question-input">
+                <label for="wrong-answer">Wrong Answer:</label>
+                <input type="text" id="wrong-answer-input">
+            </div>
+
+            <button class="add-question" onclick="addQuestion()">Add new question</button>
+        </div>
+
+        <script>
+            //#region Задание 5
+            // Написать html-страницу для создания теста из любого количества вопросов. К вопросу можно добавлять один верный и один 
+            // неверный ответ. При добавлении каждого вопроса отображать его 
+            // в списке над формой
+
+            function addQuestion() {
+                event.preventDefault();
+
+                var questionsList = document.getElementById('questions-list');
+                var question = document.getElementById('question-input').value;
+                var correctAnswer = document.getElementById('correct-answer-input').value;
+                var wrongAnswer = document.getElementById('wrong-answer-input').value;
+            
+                    var listItem = document.createElement('li');
+                
+                    var questionElement = document.createElement('div');
+                    questionElement.className = 'question';
+                    questionElement.textContent = question;
+                
+                    var answersElement = document.createElement('div');
+                    answersElement.className = 'answers';
+                    answersElement.innerHTML = 'Correct answer: ' + correctAnswer + '<br>Wrong answer: ' + wrongAnswer;
+                
+                    var hrElement = document.createElement('hr');
+                
+                    listItem.appendChild(questionElement);
+                    listItem.appendChild(answersElement);
+                    listItem.appendChild(hrElement);
+                
+                    questionsList.appendChild(listItem);
+            }
+        </script>
+    </body>
+</html>

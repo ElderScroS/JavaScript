@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(35, 30, 30);
+    color: bisque;
+    font-size: xx-large;
+    display: block;
+}
+
+div {
+    position: absolute;
+    left: 42%;
+} 
+
+.random-number {
+    margin-left: 120px;
+}
+
+.button {
+    font-size: xx-large;
+    margin-left: 55px;
+    border: 0.5px solid wheat; 
+    color: #aaa287; 
+    background-color: #27241f;
+}
+
+.button:hover {
+    color: #27241f;
+    background-color: #aaa287;
+    transition: 0.3s;
+}
+
+.task3 {
+    margin-top: 15%;
+    left: 44%;
+}
+.text { 
+    color: rgb(181, 168, 168);
+    font-size: x-large;
+    margin-left: -30%;
+}
+
+.task4 {
+    font-size: large;
+    margin-top: 30%;
+    left: 10%;
+}
+.btns {
+    align-self: center;
+    justify-content: space-between;
+    display: block;
+}
+.button-tab {
+    width: 100px;
+    margin-top: 10px;
+    font-size: xx-large;
+    border: 0.5px solid white; 
+    color: wheat; 
+    background-color: #071951;
+}
+.button-tab:hover {
+    background-color: wheat;
+    color: #071951;
+}
+
+.tab-content {
+    position: absolute;
+    width: 500px;
+    color: rgb(210, 197, 197);
+    font-size: x-large;
+    margin-left: 150px;
+    cursor:context-menu;
+
+}
+
+#tab-HTML {
+    display: block;
+}
+#tab-CSS {
+    display: none;
+}
+#tab-JS {
+    display: none;
+}
+
+.task6 {
+    font-size: large;
+    margin-top: 47%;
+    left: 40%;
+}
+
+.progressbar {
+    width: 400px;
+    height: 65px;
+    margin-top: -30%;
+    margin-left: -40%;
+    background-color: #f0f0f0;
+}
+  
+.progressbar .progress {
+    height: 100%;
+    left: 0;
+    background-color: #44aa7e;
+}
+
+
+
+
+
+
+
+

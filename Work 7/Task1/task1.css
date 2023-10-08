@@ -1,0 +1,10 @@
+body {
+    background-image: url("https://i.ytimg.com/vi/2WncoEh5p_E/maxresdefault.jpg");
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+#animal {
+    position: absolute;
+}

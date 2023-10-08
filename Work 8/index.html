@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div>
+            <div class="tab active" data-tab="mango">Mango</div>
+            <div class="tab" data-tab="orange">Orange</div>
+            <div class="tab" data-tab="pineapple">Pineapple</div>
+            <div class="tab" data-tab="papaya">Papaya</div>
+            <div class="tab" data-tab="grapefruit">Grapefruit</div>
+            <div class="tab" data-tab="pear">Pear</div>
+        </div>
+
+        <div style="text-align: left;">
+            <div id="mango" class="tab-content">
+                <img src="Images/mango.png" alt="Mango">
+                <p>A mango is an edible stone fruit produced by the tropical tree Mangifera indica. It is believed to have originated in southern Asia, particularly in eastern India, Bangladesh, and the Andaman Islands. M. indica has been cultivated in South and Southeast Asia.</p>
+            </div>
+            <div id="orange" class="tab-content">
+                <img src="Images/orange.png" alt="Orange">
+                <p>An orange is a fruit of various citrus species in the family Rutaceae (see list of plants known as orange); it primarily refers to Citrus sinensis, which is also called sweet orange, to distinguish it from the related Citrus aurantium, referred to as bitter orange.</p>
+            </div>
+            <div id="pineapple" class="tab-content">
+                <img src="Images/pineapple.png" alt="Pineapple">
+                <p>The pineapple (Ananas comosus) is a tropical plant with an edible fruit; it is the most economically significant plant in the family Bromeliaceae. The pineapple is indigenous to South America, where it has been cultivated for many centuries.</p>
+            </div>
+            <div id="papaya" class="tab-content">
+                <img src="Images/papaya.png" alt="Papaya">
+                <p>The papaya is the plant species Carica papaya, one of the 21 accepted species in the genus Carica of the family Caricaceae. It was first domesticated in Mesoamerica, within modern-day southern Mexico and Central America.</p>
+            </div>
+            <div id="grapefruit" class="tab-content">
+                <img src="Images/grapefruit.png" alt="Grapefruit">
+                <p>The grapefruit (Citrus paradisi) is a subtropical citrus tree known for its relatively large, sour to semi-sweet, somewhat bitter fruit. The interior flesh is segmented and varies in color from pale yellow to dark pink. Grapefruit is a citrus hybrid originating in Barbados.</p>
+            </div>
+            <div id="pear" class="tab-content">
+                <img src="Images/pear.png" alt="Pear">
+                <p>Pears are fruits produced and consumed around the world, growing on a tree and harvested in late summer into mid-autumn. The pear tree and shrub are a species of genus Pyrus in the family Rosaceae, bearing the pomaceous fruit of the same name.</p>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(".tab").click(function() {
+                var tabId = $(this).attr("data-tab");
+
+                $(".tab").removeClass("active");
+                $(".tab-content").hide();
+                $("#" + tabId).show();
+                $(this).addClass("active");
+            });
+        </script>
+    </body>
+</html>

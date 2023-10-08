@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="IE=edge, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="customer-form">
+                <label for="customer-name">Customer Name:</label>
+                <input type="text" id="customer-name" required>
+                
+                <label for="customer-age">Customer Age:</label>
+                <input type="number" id="customer-age" required>
+        
+                <div id="product-form" style="display: none;">
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" required>
+                    
+                    <label for="product-price">Product Price:</label>
+                    <input type="number" id="product-price" required>
+                    
+                    <button id="add-product-btn">Add Product</button>
+                </div>
+              
+                <button id="finish-order-btn">Finish Order</button>
+            </div>
+        
+            <h2>Customers List</h2>
+            <div class="customers-list">
+                <ul id="customers"></ul>
+            </div>
+        </div>
+        
+        <div class="products-list">
+            <h3>Products List</h2>
+            <ul id="products"></ul>
+        </div>
+        
+    <script>
+        document.getElementById('customer-age').addEventListener('input', function() {
+            var ageValue = parseInt(document.getElementById('customer-age').value);
+            
+            if (!isNaN(ageValue) && ageValue !== '') 
+                document.getElementById('product-form').style.display = 'block';
+            else 
+                document.getElementById('product-form').style.display = 'none';
+        });
+
+        function Customer(name, age, products) {
+            this.name = name;
+            this.age = age;
+            this.products = products;
+        }
+
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        const dataStorage = [];
+        let currentCustomer;
+
+        function addProduct() {
+            var customerName = document.getElementById('customer-name').value;
+            var customerAge = parseInt(document.getElementById('customer-age').value);
+
+            var existingCustomer = null;
+            for (var i = 0; i < dataStorage.length; i++) {
+                if (dataStorage[i].name === customerName) {
+                    existingCustomer = dataStorage[i];
+                    break;
+                }
+            }
+
+            var productName = document.getElementById('product-name').value;
+            var productPrice = parseFloat(document.getElementById('product-price').value);
+
+            if (productName !== '' && !isNaN(productPrice) && productPrice !== '') {
+                if (existingCustomer) {
+                    existingCustomer.products.push(new Product(productName, productPrice));
+                } else {
+                    currentCustomer = new Customer(customerName, customerAge, []);
+                    currentCustomer.products.push(new Product(productName, productPrice));
+                    dataStorage.push(currentCustomer);
+                }
+            }
+
+            displayProducts();
+        }
+
+
+        function finishOrder() {
+            if (!currentCustomer || currentCustomer.products.length === 0 || !currentCustomer.name) {
+                return;
+            }
+
+            var existingCustomerIndex = dataStorage.findIndex(function(customer) {
+                return customer.name === currentCustomer.name;
+            });
+
+            if (existingCustomerIndex !== -1) {
+                dataStorage[existingCustomerIndex] = currentCustomer;
+            } else {
+                dataStorage.push(currentCustomer);
+            }
+
+            displayCustomers();
+
+            document.getElementById('customer-name').value = '';
+            document.getElementById('customer-age').value = '';
+            document.getElementById('product-name').value = '';
+            document.getElementById('product-price').value = '';
+
+            currentCustomer = null;
+
+            document.getElementById('products').innerHTML = '';
+        }
+
+
+
+        function displayCustomers() {
+            var customersList = document.getElementById('customers');
+            customersList.innerHTML = '';
+
+            dataStorage.forEach(function(customer) {
+                var listItem = document.createElement('li');
+                listItem.innerText = customer.name;
+                customersList.appendChild(listItem);
+            });
+        }
+
+        function displayProducts() {
+            var productsList = document.getElementById('products');
+            productsList.innerHTML = '';
+
+            if (!currentCustomer)
+                return;
+            
+
+            currentCustomer.products.forEach(function(product) {
+                var listItem = document.createElement('li');
+                listItem.innerText = product.name + ' - $' + product.price;
+                productsList.appendChild(listItem);
+            });
+        }
+
+        document.getElementById('add-product-btn').addEventListener('click', addProduct);
+        document.getElementById('finish-order-btn').addEventListener('click', finishOrder);
+    </script>
+    </body>
+</html>

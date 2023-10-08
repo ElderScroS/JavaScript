@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="task4.css">
+
+        <title>Task4</title>
+    </head>
+
+    <body>
+        <div class="rating">
+            <i class="fa-regular fa-star" data-rating="1"></i>
+            <i class="fa-regular fa-star" data-rating="2"></i>
+            <i class="fa-regular fa-star" data-rating="3"></i>
+            <i class="fa-regular fa-star" data-rating="4"></i>
+            <i class="fa-regular fa-star" data-rating="5"></i>
+        </div>
+          
+
+        <script src="https://kit.fontawesome.com/ea61994a8b.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script> 
+            $('.rating i').click(function() {
+                var rating = $(this).data('rating');
+                
+                $('.rating i').removeClass('fa-solid fa-star');
+                $('.rating i').each(function() {
+                    var starRating = $(this).data('rating');
+
+                    if (starRating <= rating) {
+                        $(this).removeClass('fa-regular fa-star');
+                        $(this).addClass('fa-solid fa-star');
+                    }
+                    else {
+                        $(this).removeClass('fa-solid fa-star');
+                        $(this).addClass('fa-regular fa-star');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

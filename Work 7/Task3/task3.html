@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="task3.css">
+
+        <title>Task3</title>
+    </head>
+
+    <body>
+        <div class="colors">
+            <span>Select color:</span>
+            <button class="color-btn" data-color="red" style="background-color: red;">red</button>
+            <button class="color-btn" data-color="green" style="background-color: green;">green</button>
+            <button class="color-btn" data-color="orange" style="background-color: orange;">orange</button>
+            <button class="color-btn" data-color="yellow" style="background-color: yellow;">yellow</button>
+        </div>
+
+        <hr>
+
+        <h2>Fruits</h2>
+        <div class="fruits">
+            <div class="fruit apple red">Apple</div>
+            <div class="fruit pear green">Pear</div>
+            <div class="fruit orange">Orange</div>
+        </div>
+        <div class="fruits">
+            <div class="fruit mango red">Mango</div>
+            <div class="fruit mandarin orange">Mandarin</div>
+            <div class="fruit pineapple yellow">Pineapple</div>
+        </div>
+        <div class="fruits">
+            <div class="fruit avocado green">Avocado</div>
+            <div class="fruit red">Red Pepper</div>
+            <div class="fruit green">Green Pepper</div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(".color-btn").click(function() {
+                var color = $(this).data("color");
+                
+                $(".fruit").removeClass("highlight");
+                $(".fruit." + color).addClass("highlight");
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="task1.css">
+
+        <title>Task1</title>
+    </head>
+
+    <body>
+        <img id="animal" src="http://papik.pro/uploads/posts/2022-01/1641149484_15-papik-pro-p-detskii-risunok-slonenok-15.jpg" alt="Животное">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).mousemove(function(event) {
+                var newPositionX = event.pageX - $("#animal").width() / 2;
+                var newPositionY = event.pageY - $("#animal").height() / 2;
+                
+                if (newPositionX < 0)
+                    newPositionX = 0;
+                else if (newPositionX > $(window).width() - $("#animal").width())
+                    newPositionX = $(window).width() - $("#animal").width();
+                
+                
+                if (newPositionY < 0)
+                    newPositionY = 0;
+                else if (newPositionY > $(window).height() - $("#animal").height())
+                    newPositionY = $(window).height() - $("#animal").height();
+
+                $("#animal").css({"left": newPositionX, "top": newPositionY});
+            });
+        </script>
+    </body>
+</html>
